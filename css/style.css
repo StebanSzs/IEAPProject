@@ -1,0 +1,169 @@
+/* Reset para mantener estilos iguales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    padding-top: 60px; 
+}
+
+/* Header y nav */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px; 
+    position: fixed; 
+    width: 100%;
+    top: 0; 
+    z-index: 1000;
+    display: flex;
+    align-items: center; 
+}
+
+/* Icono inicio */
+.home-icon {
+    display: flex;
+    align-items: center; 
+    margin-right: 20px;
+}
+
+.home-icon img {
+    width: 200px; 
+    height: auto; 
+}
+
+/* Estilos nav y ul */
+nav {
+    display: flex;
+    align-items: center; 
+    flex: 1; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex: 1; 
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ffa500;
+}
+
+/* Estilos para la sección hero */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; 
+}
+
+.hero .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    color: #fff;
+}
+
+.hero .slide.active {
+    opacity: 1;
+}
+
+/* Carrusel */
+.hero .slide:nth-child(1) {
+    background-image: url('../images/Bachillerato.jpg'); 
+}
+
+.hero .slide:nth-child(2) {
+    background-image: url('../images/Primaria.jpg'); 
+}
+
+.hero .slide:nth-child(3) {
+    background-image: url('../images/Preescolar.jpg'); 
+}
+
+/* Sensibilidad */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        display: none; 
+    }
+
+    nav ul.show {
+        display: flex; 
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #fff;
+        margin-left: auto; 
+    }
+}
+
+/* Botones de navegación */
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 10;
+}
+
+.nav.prev {
+    left: 10px;
+}
+
+.nav.next {
+    right: 10px;
+}
+
+.nav:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
