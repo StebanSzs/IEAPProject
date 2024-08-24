@@ -1,32 +1,34 @@
-/* Reset para mantener estilos iguales */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Cuerpo */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4d6;
     padding-top: 60px; 
 }
 
-/* Header y nav */
 header {
     background-color: #333;
     color: #fff;
-    padding: 10px 20px; 
-    position: fixed; 
+    padding: 10px 20px;
+    position: fixed;
     width: 100%;
-    top: 0; 
+    top: 0;
     z-index: 1000;
     display: flex;
-    align-items: center; 
+    align-items: center;
+    transition: padding 0.3s ease, background-color 0.3s ease; 
 }
 
-/* Icono inicio */
+header.shrink {
+    padding: 5px 20px;
+    background-color: rgba(51, 51, 51, 0.9); 
+}
+
 .home-icon {
     display: flex;
     align-items: center; 
@@ -38,7 +40,6 @@ header {
     height: auto; 
 }
 
-/* Estilos nav y ul */
 nav {
     display: flex;
     align-items: center; 
@@ -62,13 +63,15 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
 }
 
 nav ul li a:hover {
     color: #ffa500;
+    transform: scale(1.2);
 }
 
-/* Estilos para la sección hero */
 .hero {
     position: relative;
     height: 100vh;
@@ -90,15 +93,18 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transform: scale(1.1); /* Escala las diapositivas ligeramente */
+    filter: blur(4px); 
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out, filter 1s ease-in-out;
     color: #fff;
 }
 
 .hero .slide.active {
     opacity: 1;
+    transform: scale(1); 
+    filter: blur(0); 
 }
 
-/* Carrusel */
 .hero .slide:nth-child(1) {
     background-image: url('../images/Bachillerato.jpg'); 
 }
@@ -111,7 +117,6 @@ nav ul li a:hover {
     background-image: url('../images/Preescolar.jpg'); 
 }
 
-/* Sensibilidad */
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2rem;
@@ -142,7 +147,6 @@ nav ul li a:hover {
     }
 }
 
-/* Botones de navegación */
 .nav {
     position: absolute;
     top: 50%;
@@ -150,10 +154,16 @@ nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px;
     cursor: pointer;
     font-size: 2rem;
     z-index: 10;
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }
 
 .nav.prev {
@@ -165,5 +175,5 @@ nav ul li a:hover {
 }
 
 .nav:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(255, 122, 45, 0.849);
 }
